@@ -13,6 +13,9 @@
 		6E0BF4CE2B3DB67A00BEA021 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E0BF4CC2B3DB67A00BEA021 /* Main.storyboard */; };
 		6E0BF4D02B3DB67C00BEA021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E0BF4CF2B3DB67C00BEA021 /* Assets.xcassets */; };
 		6E0BF4D32B3DB67C00BEA021 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E0BF4D12B3DB67C00BEA021 /* LaunchScreen.storyboard */; };
+		6E0BF4DF2B3DB81000BEA021 /* WantToBuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BF4DE2B3DB81000BEA021 /* WantToBuy.swift */; };
+		6E0BF4E12B3DBC7600BEA021 /* WantToBuyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BF4E02B3DBC7600BEA021 /* WantToBuyListViewModel.swift */; };
+		6E0BF4E32B3DBC8E00BEA021 /* WantToBuyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BF4E22B3DBC8E00BEA021 /* WantToBuyViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		6E0BF4CF2B3DB67C00BEA021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E0BF4D22B3DB67C00BEA021 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E0BF4D42B3DB67C00BEA021 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E0BF4DE2B3DB81000BEA021 /* WantToBuy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantToBuy.swift; sourceTree = "<group>"; };
+		6E0BF4E02B3DBC7600BEA021 /* WantToBuyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantToBuyListViewModel.swift; sourceTree = "<group>"; };
+		6E0BF4E22B3DBC8E00BEA021 /* WantToBuyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantToBuyViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,50 @@
 		6E0BF4C52B3DB67A00BEA021 /* StackToShop */ = {
 			isa = PBXGroup;
 			children = (
+				6E0BF4DA2B3DB6F000BEA021 /* Utils */,
 				6E0BF4C62B3DB67A00BEA021 /* AppDelegate.swift */,
 				6E0BF4C82B3DB67A00BEA021 /* SceneDelegate.swift */,
-				6E0BF4CA2B3DB67A00BEA021 /* ViewController.swift */,
-				6E0BF4CC2B3DB67A00BEA021 /* Main.storyboard */,
+				6E0BF4DD2B3DB75900BEA021 /* Models */,
+				6E0BF4DB2B3DB6F800BEA021 /* ViewModels */,
+				6E0BF4DC2B3DB70300BEA021 /* Views */,
 				6E0BF4CF2B3DB67C00BEA021 /* Assets.xcassets */,
 				6E0BF4D12B3DB67C00BEA021 /* LaunchScreen.storyboard */,
 				6E0BF4D42B3DB67C00BEA021 /* Info.plist */,
 			);
 			path = StackToShop;
+			sourceTree = "<group>";
+		};
+		6E0BF4DA2B3DB6F000BEA021 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		6E0BF4DB2B3DB6F800BEA021 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6E0BF4E02B3DBC7600BEA021 /* WantToBuyListViewModel.swift */,
+				6E0BF4E22B3DBC8E00BEA021 /* WantToBuyViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6E0BF4DC2B3DB70300BEA021 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E0BF4CC2B3DB67A00BEA021 /* Main.storyboard */,
+				6E0BF4CA2B3DB67A00BEA021 /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6E0BF4DD2B3DB75900BEA021 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6E0BF4DE2B3DB81000BEA021 /* WantToBuy.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +182,9 @@
 				6E0BF4CB2B3DB67A00BEA021 /* ViewController.swift in Sources */,
 				6E0BF4C72B3DB67A00BEA021 /* AppDelegate.swift in Sources */,
 				6E0BF4C92B3DB67A00BEA021 /* SceneDelegate.swift in Sources */,
+				6E0BF4DF2B3DB81000BEA021 /* WantToBuy.swift in Sources */,
+				6E0BF4E32B3DBC8E00BEA021 /* WantToBuyViewModel.swift in Sources */,
+				6E0BF4E12B3DBC7600BEA021 /* WantToBuyListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,52 @@
+//
+//  WantToBuy.swift
+//  StackToShop
+//
+//  Created by 김찬교 on 2023/12/28.
+//
+
+import UIKit
+
+// 멤버 모델
+struct WantToBuy {
+    lazy var wtbImage: UIImage? = {
+        guard let name = name else {
+            return UIImage(systemName: "photo.badge.plus")
+        }
+        return UIImage(named: "\(name).png") ?? UIImage(systemName: "photo.badge.plus")
+    }()
+    
+    static var wtbNumbers: Int = 0
+    
+    let wtbId: Int
+    
+    var name: String?
+    var cost: Int?
+    var expetedmethod: String?
+    var when: Calendar?
+    
+    // 새롭게 생성할때
+    init(image: UIImage? = nil, name: String?, cost: Int?, expectedmethod: String?, when: Calendar?) {
+        
+        self.wtbId = WantToBuy.wtbNumbers
+        
+        self.name = name
+        self.cost = cost
+        self.expetedmethod = expectedmethod
+        self.when = when
+        
+        WantToBuy.wtbNumbers += 1
+    }
+    
+    // 기존 멤버 업데이트 할때
+    init(exitingWantToBuy: WantToBuy, image: UIImage? = nil, name: String?, cost: Int?, expectedmethod: String?, when: Calendar?) {
+        
+        self = exitingWantToBuy
+        
+        self.wtbImage = image
+        self.name = name
+        self.cost = cost
+        self.expetedmethod = expectedmethod
+        self.when = when
+    }
+}

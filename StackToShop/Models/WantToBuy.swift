@@ -7,7 +7,7 @@
 
 import UIKit
 
-// 멤버 모델
+// WantToBuy 모델
 struct WantToBuy {
     lazy var wtbImage: UIImage? = {
         guard let name = name else {
@@ -38,7 +38,7 @@ struct WantToBuy {
         WantToBuy.wtbNumbers += 1
     }
     
-    // 기존 멤버 업데이트 할때
+    // 기존 리스트 업데이트 할때
     init(exitingWantToBuy: WantToBuy, image: UIImage? = nil, name: String?, cost: Int?, expectedmethod: String?, when: Calendar?) {
         
         self = exitingWantToBuy

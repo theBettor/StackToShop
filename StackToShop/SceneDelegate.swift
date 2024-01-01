@@ -20,14 +20,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let dataManager = WantToBuyListManager()
 
-        let memberListVM = MemberListViewModel(dataManager: dataManager, title: "Stack to Shop")
+        let wtbListVM = WantToBuyListViewModel(dataManager: dataManager, title: "Stack to Shop")
         
-        let memListVC = ListViewController(viewModel: memberListVM)
+        let memListVC = ListViewController(viewModel: wtbListVM)
         let naviVC = UINavigationController(rootViewController: memListVC)
 
         window?.rootViewController = naviVC
         window?.makeKeyAndVisible()
     }
+    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

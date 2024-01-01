@@ -18,6 +18,7 @@
 		6E0BF4E32B3DBC8E00BEA021 /* WantToBuyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BF4E22B3DBC8E00BEA021 /* WantToBuyViewModel.swift */; };
 		6E0BF4E62B3E8B0500BEA021 /* WantToBuyListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BF4E52B3E8B0500BEA021 /* WantToBuyListManager.swift */; };
 		6E0BF4E82B3FD54200BEA021 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BF4E72B3FD54200BEA021 /* MyTableViewCell.swift */; };
+		6E0BF4EA2B427FA600BEA021 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BF4E92B427FA600BEA021 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		6E0BF4E22B3DBC8E00BEA021 /* WantToBuyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantToBuyViewModel.swift; sourceTree = "<group>"; };
 		6E0BF4E52B3E8B0500BEA021 /* WantToBuyListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantToBuyListManager.swift; sourceTree = "<group>"; };
 		6E0BF4E72B3FD54200BEA021 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		6E0BF4E92B427FA600BEA021 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				6E0BF4E72B3FD54200BEA021 /* MyTableViewCell.swift */,
 				6E0BF4CA2B3DB67A00BEA021 /* ListViewController.swift */,
+				6E0BF4E92B427FA600BEA021 /* DetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E0BF4EA2B427FA600BEA021 /* DetailViewController.swift in Sources */,
 				6E0BF4CB2B3DB67A00BEA021 /* ListViewController.swift in Sources */,
 				6E0BF4E82B3FD54200BEA021 /* MyTableViewCell.swift in Sources */,
 				6E0BF4C72B3DB67A00BEA021 /* AppDelegate.swift in Sources */,

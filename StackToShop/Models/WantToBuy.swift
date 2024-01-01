@@ -29,7 +29,7 @@ struct WantToBuy {
     
     // 새롭게 생성할때
     init(image: UIImage? = nil, name: String?, cost: Int?, expectedmethod: String?, when: Date?) {
-        
+        self.currentDateTime = Date()  // Initialize currentDateTime here
         self.wtbId = WantToBuy.wtbNumbers
         
         self.name = name

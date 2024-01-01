@@ -109,6 +109,16 @@ class MyTableViewCell: UITableViewCell {
     func configureUI() {
         mainImageView.image = viewModel.wtbImage
         wtbNameLabel.text = viewModel.nameString
-        whenLabel.text = viewModel.whenString
+//        whenLabel.text = viewModel.whenString
+        if let whenString = viewModel.whenString {
+                // Use a DateFormatter to convert Date to String
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Use your desired date format
+
+                // Set the formatted date string to whenLabel.text
+                whenLabel.text = dateFormatter.string(from: whenString)
+            } else {
+                whenLabel.text = nil // or provide a default value if viewModel.whenDate is nil
+            }
+        }
     }
-}

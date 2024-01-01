@@ -79,18 +79,18 @@ class WantToBuyViewModel {
     
     
     // Input
-    func handleButtonTapped(image: UIImage?, name: String?, cost: String?, expectedmethod: String?, when: Date?) {
+    func handleButtonTapped(image: UIImage?, name: String?, cost: String?, expectedmethod: String?) {
         if member != nil {
-            updateWantToBuy(image: image, name: name, cost: cost, expectedmethod: expectedmethod, when: when)
+            updateWantToBuy(image: image, name: name, cost: cost, expectedmethod: expectedmethod)
         } else {
-            makeNewWantToBuy(image: image, name: name, cost: cost, expectedmethod: expectedmethod, when: when)
+            makeNewWantToBuy(image: image, name: name, cost: cost, expectedmethod: expectedmethod)
         }
     }
     
     
     // Logic
     // 기존의 멤버를 업데이트
-    private func updateWantToBuy(image: UIImage?, name: String?, cost: String?, expectedmethod: String?, when: Date?) {
+    private func updateWantToBuy(image: UIImage?, name: String?, cost: String?, expectedmethod: String?) {
         
         guard let member = self.member,
               let index = self.index else { return }
@@ -98,19 +98,19 @@ class WantToBuyViewModel {
         let costInt = Int(cost ?? "") ?? 0
         
         // (뷰모델이 가지고 있는) 멤버 업데이트 ⭐️
-        self.member = WantToBuy(exitingWantToBuy: member, image: image, name: name, cost: costInt, expectedmethod: expectedmethod, when: when)
+        self.member = WantToBuy(exitingWantToBuy: member, image: image, name: name, cost: costInt, expectedmethod: expectedmethod)
         
         // 멤버 배열 업데이트 ⭐️
         self.dataManager.updateWtbInfo(index: index, with: self.member!)
     }
     
     // 새로운 멤버를 생성
-    private func makeNewWantToBuy(image: UIImage?, name: String?, cost: String?, expectedmethod: String?, when: Date?) {
+    private func makeNewWantToBuy(image: UIImage?, name: String?, cost: String?, expectedmethod: String?) {
         
         let costInt = Int(cost ?? "") ?? 0
         
         // 새로운 멤버를 생성해서 ⭐️
-        let newWtb = WantToBuy(image: image, name: name, cost: costInt, expectedmethod: expectedmethod, when: when)
+        let newWtb = WantToBuy(image: image, name: name, cost: costInt, expectedmethod: expectedmethod)
         
         // 멤버 배열 업데이트 ⭐️
         self.dataManager.makeNewWtb(newWtb)

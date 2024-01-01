@@ -29,7 +29,7 @@ final class WantToBuyListManager: WantToBuyListType {
     
     func makeWtbListDatas() {
         wtbList = [
-            WantToBuy(name: "맥북에어15인치", cost: 2000000, expectedmethod: "쿠팡", when: .none),
+            WantToBuy(name: "맥북에어15인치", cost: 2000000, expectedmethod: "쿠팡"),
         ]
     }
     

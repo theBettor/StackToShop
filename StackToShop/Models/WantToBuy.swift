@@ -28,20 +28,20 @@ struct WantToBuy {
     var when: Date?
     
     // 새롭게 생성할때
-    init(image: UIImage? = nil, name: String?, cost: Int?, expectedmethod: String?, when: Date?) {
+    init(image: UIImage? = nil, name: String?, cost: Int?, expectedmethod: String?) {
         self.currentDateTime = Date()  // Initialize currentDateTime here
         self.wtbId = WantToBuy.wtbNumbers
         
         self.name = name
         self.cost = cost
         self.expetedmethod = expectedmethod
-        self.when = when
+//        self.when = when
         
         WantToBuy.wtbNumbers += 1
     }
     
     // 기존 리스트 업데이트 할때
-    init(exitingWantToBuy: WantToBuy, image: UIImage? = nil, name: String?, cost: Int?, expectedmethod: String?, when: Date?) {
+    init(exitingWantToBuy: WantToBuy, image: UIImage? = nil, name: String?, cost: Int?, expectedmethod: String?) {
         
         self = exitingWantToBuy
         
@@ -49,6 +49,6 @@ struct WantToBuy {
         self.name = name
         self.cost = cost
         self.expetedmethod = expectedmethod
-        self.when = when
+//        self.when = when
     }
 }

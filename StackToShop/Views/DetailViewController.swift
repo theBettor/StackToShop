@@ -219,6 +219,14 @@ final class DetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // Add UIDatePicker
+    lazy var datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .dateAndTime // Choose the desired mode
+        picker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
+        return picker
+    }()
+    
     
     //MARK: - 라이프사이클
     override func viewDidLoad() {
@@ -228,7 +236,36 @@ final class DetailViewController: UIViewController {
         setupMemberUI()
         setupTapGestures()
         setupNotification()
+        // Set date picker as input view for whenTextField
+        whenTextField.inputView = datePicker
+
+        // Add done button to toolbar
+        let toolbar = createToolbar()
+        whenTextField.inputAccessoryView = toolbar
     }
+    private func createToolbar() -> UIToolbar {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
+
+        toolbar.setItems([flexSpace, doneButton], animated: false)
+
+        return toolbar
+        }
+
+        // Method to handle changes in the date picker
+        @objc func datePickerValueChanged() {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Use your desired date format
+            whenTextField.text = dateFormatter.string(from: datePicker.date)
+        }
+
+        // Method to handle the done button tap
+        @objc func doneButtonTapped() {
+            whenTextField.resignFirstResponder() // Dismiss the keyboard
+        }
     
     func configureUI() {
         self.view.backgroundColor = .white
@@ -243,7 +280,7 @@ final class DetailViewController: UIViewController {
         wtbIdTextField.text = viewModel.wtbIdString
         nameTextField.text = viewModel.nameString
         expectedmethodTextField.text = viewModel.expectedmethodString
-//        whenTextField.text = viewModel.whenString # 1
+//        whenTextField.text = viewModel.whenString
 //        if let whenString = viewModel.whenString { # 2
 //                // Use a DateFormatter to convert Date to String
 //                let dateFormatter = DateFormatter()
@@ -267,18 +304,18 @@ final class DetailViewController: UIViewController {
 //                whenTextField.text = nil
 //            }
         // Handling date formatting
-            if let whenString = viewModel.whenString {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Use your desired date format
-
-                if let formattedDate = dateFormatter.date(from: whenString) {
-                    whenTextField.text = dateFormatter.string(from: formattedDate)
-                } else {
-                    print("Error: Unable to convert string to date.")
-                }
-            } else {
-                whenTextField.text = nil
-            }
+//            if let whenString = viewModel.whenString {
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Use your desired date format
+//
+//                if let formattedDate = dateFormatter.date(from: whenString) {
+//                    whenTextField.text = dateFormatter.string(from: formattedDate)
+//                } else {
+//                    print("Error: Unable to convert string to date.")
+//                }
+//            } else {
+//                whenTextField.text = nil
+//            }
         costTextField.text = viewModel.costString
     }
 
@@ -365,9 +402,9 @@ final class DetailViewController: UIViewController {
         let name = nameTextField.text
         let cost = costTextField.text
         let expectedmethod = expectedmethodTextField.text ?? ""
-        let when = whenTextField.text ?? ""
+//        let when = whenTextField.text ?? ""
         
-        viewModel.handleButtonTapped(image: image, name: name, cost: cost, expectedmethod: expectedmethod, when: when)
+        viewModel.handleButtonTapped(image: image, name: name, cost: cost, expectedmethod: expectedmethod)
         
         viewModel.backToBeforeVC(fromCurrentVC: self, animated: true)
     }

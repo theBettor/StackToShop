@@ -23,6 +23,27 @@ class WantToBuyViewModel {
         self.index = index
     }
     
+    let service = WantToBuyListManager() // 비즈니스 로직
+       
+    var onUpdated: () -> Void = {}
+    
+    var dateTimeString: String = "Loading..."
+        {
+            willSet {
+                self.dateTimeString = "Loading..."
+            }
+            didSet {
+                self.onUpdated()
+            }
+        }
+    
+    func dateToString(date: Date) {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy년 MM월 dd일 HH시 mm분"
+            dateTimeString = formatter.string(from: date)
+        }
+
+    
     // Output
     var wtbImage: UIImage? {
         member?.wtbImage

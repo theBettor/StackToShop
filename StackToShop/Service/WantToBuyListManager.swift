@@ -21,6 +21,8 @@ final class WantToBuyListManager: WantToBuyListType {
     // 멤버리스트를 저장하기 위한 배열
     private var wtbList: [WantToBuy] = []
     
+//    var currentModel = WantToBuy(currentDateTime: Date())
+    
     init() {
         makeWtbListDatas()
     }

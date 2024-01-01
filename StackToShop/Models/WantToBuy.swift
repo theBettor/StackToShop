@@ -16,6 +16,8 @@ struct WantToBuy {
         return UIImage(named: "\(name).png") ?? UIImage(systemName: "photo.badge.plus")
     }()
     
+    var currentDateTime: Date
+    
     static var wtbNumbers: Int = 0
     
     let wtbId: Int

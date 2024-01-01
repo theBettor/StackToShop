@@ -36,7 +36,7 @@ class WantToBuyListViewModel {
     }
     
     // 뷰모델 생성
-    func wanttobuyViewModelAtIndex(_ index: Int) -> WantToBuyViewModel {
+    func wtbViewModelAtIndex(_ index: Int) -> WantToBuyViewModel {
         let member = self.wtbList[index]
         return WantToBuyViewModel(dataManager: self.dataManager, with: member, index: index)
     }
@@ -56,8 +56,8 @@ class WantToBuyListViewModel {
     func handleNextVC(_ index: Int? = nil, fromCurrentVC: UIViewController, animated: Bool) {
         // 기존의 멤버가 있을때
         if let index = index {
-            let wanttobuyVM = wanttobuyViewModelAtIndex(index)
-            goToNextVC(with: wanttobuyVM, fromCurrentVC: fromCurrentVC, animated: animated)
+            let wtbVM = wtbViewModelAtIndex(index)
+            goToNextVC(with: wtbVM, fromCurrentVC: fromCurrentVC, animated: animated)
         // 새로운 멤버 생성시
         } else {
             let newVM = WantToBuyViewModel(dataManager: self.dataManager, with: nil, index: nil)

@@ -53,10 +53,6 @@ class WantToBuyViewModel {
         //return dataManager[index].memberImage
     }
     
-    var wtbIdString: String? {
-        String(member?.wtbId ?? WantToBuy.wtbNumbers)
-    }
-    
     var nameString: String? {
         member?.name
     }

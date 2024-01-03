@@ -27,38 +27,6 @@ final class DetailViewController: UIViewController {
         return view
     }()
     
-    let wtbIdLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.text = "멤버번호:"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    lazy var wtbIdTextField: UITextField = {
-        let tf = UITextField()
-        tf.frame.size.height = 22
-        tf.textColor = .black
-        tf.borderStyle = .roundedRect
-        tf.autocapitalizationType = .none
-        tf.autocorrectionType = .no
-        tf.spellCheckingType = .no
-        tf.clearsOnBeginEditing = false
-        tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.delegate = self
-        return tf
-    }()
-    
-    lazy var wtbIdStackView: UIStackView = {
-        let stview = UIStackView(arrangedSubviews: [wtbIdLabel, wtbIdTextField])
-        stview.spacing = 5
-        stview.axis = .horizontal
-        stview.distribution = .fill
-        stview.alignment = .fill
-        stview.translatesAutoresizingMaskIntoConstraints = false
-        return stview
-    }()
-    
     let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -191,7 +159,7 @@ final class DetailViewController: UIViewController {
     }()
     
     lazy var stackView: UIStackView = {
-        let stview = UIStackView(arrangedSubviews: [imageContainView, wtbIdStackView, nameStackView, costStackView, expectedmethodStackView, whenStackView, saveButton])
+        let stview = UIStackView(arrangedSubviews: [imageContainView, nameStackView, costStackView, expectedmethodStackView, whenStackView, saveButton])
         stview.spacing = 10
         stview.axis = .vertical
         stview.distribution = .fill
@@ -277,7 +245,6 @@ final class DetailViewController: UIViewController {
         saveButton.setTitle(viewModel.buttonTitle, for: .normal)
         
         mainImageView.image = viewModel.wtbImage
-        wtbIdTextField.text = viewModel.wtbIdString
         nameTextField.text = viewModel.nameString
         expectedmethodTextField.text = viewModel.expectedmethodString
 //        whenTextField.text = viewModel.whenString
@@ -333,7 +300,6 @@ final class DetailViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            wtbIdLabel.widthAnchor.constraint(equalToConstant: labelWidth),
             nameLabel.widthAnchor.constraint(equalToConstant: labelWidth),
             costLabel.widthAnchor.constraint(equalToConstant: labelWidth),
             expectedmethodLabel.widthAnchor.constraint(equalToConstant: labelWidth),
@@ -439,12 +405,12 @@ extension DetailViewController: PHPickerViewControllerDelegate {
 }
 
 //MARK: - 텍스트필드 델리게이트
-extension DetailViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        // 멤버 아이디는 수정 못하도록 설정
-        if textField == wtbIdTextField {
-            return false
-        }
-        return true
-    }
-}
+//extension DetailViewController: UITextFieldDelegate {
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        // 멤버 아이디는 수정 못하도록 설정
+////        if textField == wtbIdTextField {
+////            return false
+////        }
+////        return true
+////    }
+//}

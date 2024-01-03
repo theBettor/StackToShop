@@ -20,8 +20,6 @@ struct WantToBuy {
     
     static var wtbNumbers: Int = 0
     
-    let wtbId: Int
-    
     var name: String?
     var cost: Int?
     var expetedmethod: String?
@@ -30,7 +28,6 @@ struct WantToBuy {
     // 새롭게 생성할때
     init(image: UIImage? = nil, name: String?, cost: Int?, expectedmethod: String?) {
         self.currentDateTime = Date()  // Initialize currentDateTime here
-        self.wtbId = WantToBuy.wtbNumbers
         
         self.name = name
         self.cost = cost

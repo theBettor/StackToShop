@@ -60,7 +60,7 @@ final class DetailViewController: UIViewController {
     let costLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.text = "나       이:"
+        label.text = "가       격:"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -69,9 +69,11 @@ final class DetailViewController: UIViewController {
         let tf = UITextField()
         tf.frame.size.height = 22
         tf.borderStyle = .roundedRect
+        tf.becomeFirstResponder()
         tf.autocapitalizationType = .none
         tf.autocorrectionType = .no
         tf.spellCheckingType = .no
+        tf.keyboardType = .numberPad
         tf.clearsOnBeginEditing = false
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
@@ -90,7 +92,7 @@ final class DetailViewController: UIViewController {
     let expectedmethodLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.text = "전화번호:"
+        label.text = "구매링크:"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -120,7 +122,7 @@ final class DetailViewController: UIViewController {
     let whenLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.text = "주       소:"
+        label.text = "기       한:"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -405,12 +407,25 @@ extension DetailViewController: PHPickerViewControllerDelegate {
 }
 
 //MARK: - 텍스트필드 델리게이트
-//extension DetailViewController: UITextFieldDelegate {
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        // 멤버 아이디는 수정 못하도록 설정
-////        if textField == wtbIdTextField {
-////            return false
-////        }
-////        return true
-////    }
-//}
+extension DetailViewController: UITextFieldDelegate {
+    ////    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    ////        // 멤버 아이디는 수정 못하도록 설정
+    ////        if textField == wtbIdTextField {
+    ////            return false
+    ////        }
+    ////        return true
+    ////    }
+    //    func textField(costtextField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    //        // 숫자만 && 글자수 제한
+    //        guard Int(string) != nil || string == "" else { return false }
+    //        return true
+    //    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: string)
+        if allowedCharacters.isSuperset(of: characterSet) == false{
+            return false
+        }
+        return true
+    }
+}

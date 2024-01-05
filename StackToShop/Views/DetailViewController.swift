@@ -206,6 +206,7 @@ final class DetailViewController: UIViewController {
         setupMemberUI()
         setupTapGestures()
         setupNotification()
+        costTextField.delegate = self
         // Set date picker as input view for whenTextField
         whenTextField.inputView = datePicker
 
@@ -408,24 +409,33 @@ extension DetailViewController: PHPickerViewControllerDelegate {
 
 //MARK: - 텍스트필드 델리게이트
 extension DetailViewController: UITextFieldDelegate {
-    ////    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    ////        // 멤버 아이디는 수정 못하도록 설정
-    ////        if textField == wtbIdTextField {
-    ////            return false
-    ////        }
-    ////        return true
-    ////    }
-    //    func textField(costtextField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    //        // 숫자만 && 글자수 제한
-    //        guard Int(string) != nil || string == "" else { return false }
-    //        return true
-    //    }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let allowedCharacters = CharacterSet.decimalDigits
-        let characterSet = CharacterSet(charactersIn: string)
-        if allowedCharacters.isSuperset(of: characterSet) == false{
-            return false
+            if textField == costTextField {
+                // Remove any non-numeric characters (e.g., commas or dots) from the current text
+                let currentText = (textField.text ?? "").replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+
+                // Append the new string to the current text
+                let newText = currentText + string
+
+                // Format the text with commas for every three digits
+                if let formattedText = formatCostText(newText) {
+                    textField.text = formattedText
+                }
+
+                return false
+            }
+
+            return true
         }
-        return true
-    }
+
+        func formatCostText(_ text: String) -> String? {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+
+            if let number = formatter.number(from: text) {
+                return formatter.string(from: number)
+            }
+
+            return nil
+        }
 }

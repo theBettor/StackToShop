@@ -410,32 +410,39 @@ extension DetailViewController: PHPickerViewControllerDelegate {
 //MARK: - 텍스트필드 델리게이트
 extension DetailViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            if textField == costTextField {
-                // Remove any non-numeric characters (e.g., commas or dots) from the current text
-                let currentText = (textField.text ?? "").replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-
-                // Append the new string to the current text
-                let newText = currentText + string
-
-                // Format the text with commas for every three digits
-                if let formattedText = formatCostText(newText) {
-                    textField.text = formattedText
-                }
-
-                return false
+        
+        
+        if textField == costTextField {
+            // Remove any non-numeric characters (e.g., commas or dots) from the current text
+            let currentText = (textField.text ?? "").replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+            
+            // Append the new string to the current text
+            let newText = currentText + string
+            
+            
+            
+            // Format the text with commas for every three digits
+            if let formattedText = formatCostText(newText) {
+                textField.text = formattedText
+                
             }
+            
+            return false
+        } else if Int(string) != nil || string == "" {
+            
+            return true }
+        return false
 
-            return true
+    }
+
+    func formatCostText(_ text: String) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        if let number = formatter.number(from: text) {
+        return formatter.string(from: number)
         }
 
-        func formatCostText(_ text: String) -> String? {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .decimal
-
-            if let number = formatter.number(from: text) {
-                return formatter.string(from: number)
-            }
-
-            return nil
+        return nil
         }
 }

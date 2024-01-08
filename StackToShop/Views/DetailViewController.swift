@@ -69,7 +69,6 @@ final class DetailViewController: UIViewController {
         let tf = UITextField()
         tf.frame.size.height = 22
         tf.borderStyle = .roundedRect
-        tf.becomeFirstResponder()
         tf.autocapitalizationType = .none
         tf.autocorrectionType = .no
         tf.spellCheckingType = .no
@@ -369,7 +368,7 @@ final class DetailViewController: UIViewController {
         
         let image = mainImageView.image
         let name = nameTextField.text
-        let cost = costTextField.text
+        let cost = costTextField.text ?? ""
         let expectedmethod = expectedmethodTextField.text ?? ""
 //        let when = whenTextField.text ?? ""
         
@@ -379,7 +378,11 @@ final class DetailViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        guard let touch = touches.first, !nameTextField.frame.contains(touch.location(in: view)) else {
+            // 텍스트 필드 외의 다른 부분을 터치한 경우에만 키보드를 숨깁니다.
+            self.view.endEditing(true)
+            return
+        }
     }
     
     deinit {
@@ -410,39 +413,49 @@ extension DetailViewController: PHPickerViewControllerDelegate {
 //MARK: - 텍스트필드 델리게이트
 extension DetailViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        
-        if textField == costTextField {
-            // Remove any non-numeric characters (e.g., commas or dots) from the current text
-            let currentText = (textField.text ?? "").replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-            
-            // Append the new string to the current text
-            let newText = currentText + string
-            
-            
-            
-            // Format the text with commas for every three digits
-            if let formattedText = formatCostText(newText) {
-                textField.text = formattedText
-                
+        guard var text = textField.text else {
+                    return true
+                }
+                text = text.replacingOccurrences(of: "원", with: "")
+                text = text.replacingOccurrences(of: ",", with: "")
+
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = .decimal
+
+                if (string.isEmpty) {
+                    // delete
+                    if text.count > 1 {
+                        guard let price = Int.init("\(text.prefix(text.count - 1))") else {
+                            return true
+                        }
+                        guard let result = numberFormatter.string(from: NSNumber(value:price)) else {
+                            return true
+                        }
+
+                        textField.text = "\(result)원"
+                    }
+                    else {
+                        textField.text = ""
+                    }
+                }
+                else {
+                    // add
+                    guard let price = Int.init("\(text)\(string)") else {
+                        return true
+                    }
+                    guard let result = numberFormatter.string(from: NSNumber(value:price)) else {
+                        return true
+                    }
+
+                    textField.text = "\(result)원"
+                }
+
+                return false
             }
-            
-            return false
-        } else if Int(string) != nil || string == "" {
-            
-            return true }
-        return false
 
-    }
-
-    func formatCostText(_ text: String) -> String? {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-
-        if let number = formatter.number(from: text) {
-        return formatter.string(from: number)
-        }
-
-        return nil
-        }
-}
+            func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+                print("Current text: \(textField.text ?? "")")
+                print("Replacement string: \(textField.text ?? "")")
+                return true
+            }
+         }

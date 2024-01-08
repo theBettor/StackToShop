@@ -38,6 +38,7 @@ final class ListViewController: UIViewController {
         setupDatas()
         setupTableView()
         setupTableViewConstraints()
+        
     }
     
     // 화면에 들어오면 테이블뷰 다시 그리도록 구현

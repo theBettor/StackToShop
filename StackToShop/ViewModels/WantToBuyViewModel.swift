@@ -57,8 +57,11 @@ class WantToBuyViewModel {
         member?.name
     }
     
+//    var costString: String? {
+//        member != nil ? String(member!.cost!) : ""
+//    }
     var costString: String? {
-        member != nil ? String(member!.cost!) : ""
+        member?.cost.map(String.init) ?? ""
     }
     
     var expectedmethodString: String? {

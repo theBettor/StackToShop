@@ -15,7 +15,7 @@ class WantToBuyListViewModel {
     let title: String
     
     // 멤버리스트 배열 데이터 ⭐️⭐️⭐️
-    private var wtbList: [WantToBuy] {
+    var wtbList: [WantToBuy] {
         return dataManager.getWtbList()
     }
     

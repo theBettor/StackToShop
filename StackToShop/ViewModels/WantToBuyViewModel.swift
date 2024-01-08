@@ -84,6 +84,8 @@ class WantToBuyViewModel {
         } else {
             makeNewWantToBuy(image: image, name: name, cost: cost, expectedmethod: expectedmethod)
         }
+        print("1Current text: \(name ?? "")")
+        print("Replacement string: \(cost ?? "")")
     }
     
     

@@ -361,6 +361,8 @@ final class DetailViewController: UIViewController {
     
     //MARK: - SAVE버튼 또는 UPDATE버튼이 눌렸을때의 동작
     @objc func saveButtonTapped() {
+        print("Current text: \(nameTextField.text ?? "")")
+        print("Replacement string: \(costTextField.text ?? "")")
         guard nameTextField.text != "", costTextField.text != "" else {
             print("최소한 이름, 나이는 입력해야 합니다.")
             return
@@ -448,14 +450,18 @@ extension DetailViewController: UITextFieldDelegate {
                     }
 
                     textField.text = "\(result)원"
+                    
+                    
                 }
+//                        print("Current text: \(textField.text ?? "")")
+//                        print("Replacement string: \(textField.text ?? "")")
 
                 return false
             }
 
-            func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-                print("Current text: \(textField.text ?? "")")
-                print("Replacement string: \(textField.text ?? "")")
-                return true
-            }
+//            func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//                print("Current text: \(textField.text ?? "")")
+//                print("Replacement string: \(textField.text ?? "")")
+//                return true
+//            }
          }

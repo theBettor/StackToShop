@@ -208,6 +208,10 @@ final class DetailViewController: UIViewController {
         costTextField.delegate = self
         // Set date picker as input view for whenTextField
         whenTextField.inputView = datePicker
+        viewModel.costtextfield.subscribe { value in DispatchQueue.main.async {
+            self.costTextField.text = value
+        }
+    }
 
         // Add done button to toolbar
         let toolbar = createToolbar()

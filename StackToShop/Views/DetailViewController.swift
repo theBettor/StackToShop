@@ -464,4 +464,13 @@ extension DetailViewController: UITextFieldDelegate {
 //                print("Replacement string: \(textField.text ?? "")")
 //                return true
 //            }
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("Current text: \(textField.text ?? "")")
+        print("Replacement string: \(textField.text ?? "")")
+        return true
+    }
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        print("Current text: \(textField.text ?? "")")
+        print("Replacement string: \(textField.text ?? "")")
+    }
          }

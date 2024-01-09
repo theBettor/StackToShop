@@ -19,6 +19,8 @@
 		6E0BF4E62B3E8B0500BEA021 /* WantToBuyListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BF4E52B3E8B0500BEA021 /* WantToBuyListManager.swift */; };
 		6E0BF4E82B3FD54200BEA021 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BF4E72B3FD54200BEA021 /* MyTableViewCell.swift */; };
 		6E0BF4EA2B427FA600BEA021 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BF4E92B427FA600BEA021 /* DetailViewController.swift */; };
+		6E74F60B2B4D8501007B7CB8 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74F60A2B4D8501007B7CB8 /* Observable.swift */; };
+		6E74F60D2B4D854D007B7CB8 /* BindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74F60C2B4D854D007B7CB8 /* BindingTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		6E0BF4E52B3E8B0500BEA021 /* WantToBuyListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantToBuyListManager.swift; sourceTree = "<group>"; };
 		6E0BF4E72B3FD54200BEA021 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		6E0BF4E92B427FA600BEA021 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		6E74F60A2B4D8501007B7CB8 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		6E74F60C2B4D854D007B7CB8 /* BindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 		6E0BF4DA2B3DB6F000BEA021 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				6E74F60A2B4D8501007B7CB8 /* Observable.swift */,
+				6E74F60C2B4D854D007B7CB8 /* BindingTextField.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -202,7 +208,9 @@
 				6E0BF4C72B3DB67A00BEA021 /* AppDelegate.swift in Sources */,
 				6E0BF4C92B3DB67A00BEA021 /* SceneDelegate.swift in Sources */,
 				6E0BF4DF2B3DB81000BEA021 /* WantToBuy.swift in Sources */,
+				6E74F60B2B4D8501007B7CB8 /* Observable.swift in Sources */,
 				6E0BF4E32B3DBC8E00BEA021 /* WantToBuyViewModel.swift in Sources */,
+				6E74F60D2B4D854D007B7CB8 /* BindingTextField.swift in Sources */,
 				6E0BF4E62B3E8B0500BEA021 /* WantToBuyListManager.swift in Sources */,
 				6E0BF4E12B3DBC7600BEA021 /* WantToBuyListViewModel.swift in Sources */,
 			);

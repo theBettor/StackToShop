@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45FBC94B5EE0314D5EEB47D9 /* Pods_StackToShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB24C112498183400320B8E /* Pods_StackToShop.framework */; };
 		6E0BF4C72B3DB67A00BEA021 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BF4C62B3DB67A00BEA021 /* AppDelegate.swift */; };
 		6E0BF4C92B3DB67A00BEA021 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BF4C82B3DB67A00BEA021 /* SceneDelegate.swift */; };
 		6E0BF4CB2B3DB67A00BEA021 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BF4CA2B3DB67A00BEA021 /* ListViewController.swift */; };
@@ -40,6 +41,9 @@
 		6E0BF4E92B427FA600BEA021 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6E74F60A2B4D8501007B7CB8 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		6E74F60C2B4D854D007B7CB8 /* BindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingTextField.swift; sourceTree = "<group>"; };
+		A826ECBB09F7BED43A921D09 /* Pods-StackToShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackToShop.debug.xcconfig"; path = "Target Support Files/Pods-StackToShop/Pods-StackToShop.debug.xcconfig"; sourceTree = "<group>"; };
+		B294D1F95FFD2525D55D246B /* Pods-StackToShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackToShop.release.xcconfig"; path = "Target Support Files/Pods-StackToShop/Pods-StackToShop.release.xcconfig"; sourceTree = "<group>"; };
+		FEB24C112498183400320B8E /* Pods_StackToShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackToShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FBC94B5EE0314D5EEB47D9 /* Pods_StackToShop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +63,8 @@
 			children = (
 				6E0BF4C52B3DB67A00BEA021 /* StackToShop */,
 				6E0BF4C42B3DB67A00BEA021 /* Products */,
+				B9B8115DC27D4CF292640F08 /* Pods */,
+				CAD6E38D15AF3A4DB5BC55CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +138,24 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		B9B8115DC27D4CF292640F08 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A826ECBB09F7BED43A921D09 /* Pods-StackToShop.debug.xcconfig */,
+				B294D1F95FFD2525D55D246B /* Pods-StackToShop.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CAD6E38D15AF3A4DB5BC55CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FEB24C112498183400320B8E /* Pods_StackToShop.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E0BF4D72B3DB67C00BEA021 /* Build configuration list for PBXNativeTarget "StackToShop" */;
 			buildPhases = (
+				311C7831B9A336F8CD0193EF /* [CP] Check Pods Manifest.lock */,
 				6E0BF4BF2B3DB67A00BEA021 /* Sources */,
 				6E0BF4C02B3DB67A00BEA021 /* Frameworks */,
 				6E0BF4C12B3DB67A00BEA021 /* Resources */,
+				7A7D931E9326DD6197D4C959 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,6 +223,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		311C7831B9A336F8CD0193EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StackToShop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A7D931E9326DD6197D4C959 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StackToShop/Pods-StackToShop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StackToShop/Pods-StackToShop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StackToShop/Pods-StackToShop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6E0BF4BF2B3DB67A00BEA021 /* Sources */ = {
@@ -354,6 +423,7 @@
 		};
 		6E0BF4D82B3DB67C00BEA021 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A826ECBB09F7BED43A921D09 /* Pods-StackToShop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -382,6 +452,7 @@
 		};
 		6E0BF4D92B3DB67C00BEA021 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B294D1F95FFD2525D55D246B /* Pods-StackToShop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

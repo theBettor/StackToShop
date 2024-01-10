@@ -10,7 +10,7 @@ import UIKit
 
 class WantToBuyViewModel {
     
-    let costStringObservable = Observable<String>("")
+    let costStringObservable = Observable<String?>("")
     
     // 원래의 배열 데이터에도 접근 필요
     let dataManager: WantToBuyListType

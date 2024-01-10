@@ -7,6 +7,8 @@
 
 import UIKit
 import PhotosUI
+import Bond
+import ReactiveKit
 
 final class DetailViewController: UIViewController {
     
@@ -208,10 +210,6 @@ final class DetailViewController: UIViewController {
         costTextField.delegate = self
         // Set date picker as input view for whenTextField
         whenTextField.inputView = datePicker
-        viewModel.costtextfield.subscribe { value in DispatchQueue.main.async {
-            self.costTextField.text = value
-        }
-    }
         bindToViewModel()
 
         // Add done button to toolbar

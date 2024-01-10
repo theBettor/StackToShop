@@ -10,7 +10,6 @@ import UIKit
 
 class WantToBuyViewModel {
     
-    
     // 원래의 배열 데이터에도 접근 필요
     let dataManager: WantToBuyListType
     
